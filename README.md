@@ -7,7 +7,7 @@ Starting from a set of nodes consisting of a single random node, the program gre
 
 ## Compile ##
 
-type "make" to compile the C codes.
+type "make" to compile the C code.
 
 ## Usage ##
 
