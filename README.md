@@ -19,7 +19,7 @@ type "./allcom graph.txt"
 1 2  
 2 3  
 
-This will run the code with default parameters. If you wish to change those, please refer to the section "Options".
+This will run the program with default parameters. If you wish to change those, please refer to the section "Options".
 
 ## Output ##
 
