@@ -13,8 +13,11 @@ type "./allcom graph.txt"
 
 - graph.txt is the edge list of the input graph with one edge on each line and separated by spaces.
 - Example for a triangle graph:
+
 0 1
+
 1 2
+
 2 3
 
 ## Output ##
@@ -55,7 +58,7 @@ type "./allcom graph.txt"
 
 Maximilien Danisch
 
-Technical consultant: Noe Gaumont
+Technical consultants: Noe Gaumont and Jean-Loup Guillaume
 
 Avril 2015
 
