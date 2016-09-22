@@ -1,6 +1,8 @@
 # README #
 
 ## Info ##
+This program aims at finding all overlapping communities in a large network.
+
 Starting from a set of nodes consisting of a single random node, the program greedily optimizes (by adding or removing one node at a time) a function quantifying the quality of a set of nodes as a community. It does this many times and output each found set of nodes if (i) its quality is high enough and (ii) it is not too similar to a previously found one and (iii) it was found several times. Default parameters are in the file param.h and can be changed manually, particularly several quality functions are implemented and can be changed.
 
 ## Compile ##
@@ -14,9 +16,9 @@ type "./allcom graph.txt"
 - graph.txt is the edge list of the input graph with one edge on each line and separated by spaces.
 - Example for a triangle graph:
 
-0 1\n
-1 2\n
-2 3\n
+0 1  
+1 2  
+2 3  
 
 ## Output ##
 
