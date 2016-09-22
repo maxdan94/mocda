@@ -39,6 +39,9 @@ type "./allcom graph.txt"
 "params" contains the values of the parameters used.
 
 ## Options ##
+
+./allcoms graph.txt [-qfonc char*] [-tr bool] [-qual float] [-sim float] [-max int] [-min int] [-times int] [-rep int] [-ini int] [-rm bool] [-order bool] [-path char*] [-print bool]
+
 - qfonc int : quality function choice: 1=rd,2=phi,3=ad,4=ed,5=rdt,6=atd,7=cohesion (cf funcqual.c).
 - tr bool : //Keep track of triangles?: 0=No,1=Yes.
 - qual float : minimal quality to consider a community.
