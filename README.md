@@ -61,7 +61,7 @@ If you wish to change those, please refer to the section "Options".
 
 ## Initial contributors ##
 
-Maximilien Danisch and Noe Gaumont
+Maximilien Danisch and Noe Gaumont  
 Technical consultants: Jean-Loup Guillaume  
 Avril 2015  
 http://bit.ly/maxdan94  
