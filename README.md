@@ -19,7 +19,8 @@ type "./allcom graph.txt"
 1 2  
 2 3  
 
-This will run the program with default parameters. If you wish to change those, please refer to the section "Options".
+This will run the program with default parameters.
+If you wish to change those, please refer to the section "Options".
 
 ## Output ##
 
@@ -60,8 +61,8 @@ This will run the program with default parameters. If you wish to change those, 
 
 ## Initial contributors ##
 
-Maximilien Danisch  
-Technical consultants: Noe Gaumont and Jean-Loup Guillaume  
+Maximilien Danisch and Noe Gaumont
+Technical consultants: Jean-Loup Guillaume  
 Avril 2015  
 http://bit.ly/maxdan94  
 maximilien.danisch@telecom-paristech.fr
