@@ -14,8 +14,7 @@ type "make" to compile the C codes.
 type "./allcom graph.txt"
 
 - graph.txt is the edge list of the input graph with one edge on each line and separated by spaces.
-- Example for a triangle graph:
-
+- Example for a triangle graph:  
 0 1  
 1 2  
 2 3  
@@ -56,13 +55,9 @@ type "./allcom graph.txt"
 
 ## Initial contributors ##
 
-Maximilien Danisch
-
-Technical consultants: Noe Gaumont and Jean-Loup Guillaume
-
-Avril 2015
-
-http://perso.crans.org/danisch/max/home.html
-
-maximilien.danisch@gmail.com
+Maximilien Danisch  
+Technical consultants: Noe Gaumont and Jean-Loup Guillaume  
+Avril 2015  
+http://perso.crans.org/danisch/max/home.html  
+maximilien.danisch@gmail.com  
 
