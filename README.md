@@ -63,6 +63,6 @@ This will run the program with default parameters. If you wish to change those, 
 Maximilien Danisch  
 Technical consultants: Noe Gaumont and Jean-Loup Guillaume  
 Avril 2015  
-http://perso.crans.org/danisch/max/home.html  
-maximilien.danisch@gmail.com  
+http://bit.ly/maxdan94  
+maximilien.danisch@telecom-paristech.fr
 
