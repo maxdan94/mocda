@@ -1,7 +1,7 @@
 # README #
 
 ## Info ##
-This program aims at finding all overlapping communities in a large network.
+This program aims at finding all overlapping communities in large-scale networks.
 
 Starting from a set of nodes consisting of a single random node, the program greedily optimizes (by adding or removing one node at a time) a function quantifying the quality of a set of nodes as a community. It does this many times and output each found set of nodes if (i) its quality is high enough and (ii) it is not too similar to a previously found one and (iii) it was found several times. Default parameters are in the file param.h and can be changed manually, particularly several quality functions are implemented and can be changed.
 
