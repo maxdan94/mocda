@@ -157,7 +157,7 @@ void com2clean(community* comopt,cleaning* clean){
 	empty(comopt);
 }
 
-void printcoms(char* node_coms,char* com_nodes,char* info,cleaning* clean,sparse* g){
+void printcoms(char* node_coms,char* com_nodes,char* info, cleaning* clean,sparse* g){
 	unsigned i,j,k=0;
 	FILE *file, *file2;
 	unsigned* tmp=malloc(clean->nc*sizeof(unsigned));

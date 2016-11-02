@@ -1,12 +1,35 @@
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
 
 #include "graph.h"
 #include "funcqual.h"
 #include "optim.h"
 #include "clean.h"
 #include "param.h"
-#include <string.h>
+
+//printing time
+void printtime(char* runtime,time_t* t){
+	FILE *file=fopen(runtime,"w");
+	fprintf(file,"Time to read the edge list: %ldh%ldm%lds\n",(t[1]-t[0])/3600,((t[1]-t[0])%3600)/60,((t[1]-t[0])%60));
+	fprintf(file,"Time to build the datastructures: %ldh%ldm%lds\n",(t[2]-t[1])/3600,((t[2]-t[1])%3600)/60,((t[2]-t[1])%60));
+	fprintf(file,"Time for optimisation and cleaning: %ldh%ldm%lds\n",(t[3]-t[2])/3600,((t[3]-t[2])%3600)/60,((t[3]-t[2])%60));
+	fprintf(file,"Overall time (minus I/O): %ldh%ldm%lds\n",(t[3]-t[1])/3600,((t[3]-t[1])%3600)/60,((t[3]-t[1])%60));
+	fprintf(file,"Overall time: %ldh%ldm%lds\n",(t[4]-t[0])/3600,((t[4]-t[0])%3600)/60,((t[4]-t[0])%60));
+	fclose(file);
+}
+
+//printing summary of the running%
+void printsummary(char* summary,cleaning* clean){
+	FILE *file=fopen(summary,"w");
+	fprintf(file,"Number of optimisation: %u\n",clean->itc);
+	fprintf(file,"Number of succesfull optimisation: %u\n",clean->succ);
+	fprintf(file,"Number of good quality community: %u\n",clean->qualc);
+	fprintf(file,"Number of different communities found: %u\n",clean->difc);
+	fprintf(file,"Number of communities found: %u\n",clean->selc);
+	fclose(file);
+}
+
 
 int main(int argc,char** argv){
 	unsigned i,node;
@@ -15,25 +38,33 @@ int main(int argc,char** argv){
 	cleaning *clean;
 	allcoms *coms;// only used if ARG.order==1
 	qualfonc quality;
-	char node_coms[50],com_nodes[50],info[50],params[50];
+	char node_coms[100],com_nodes[100],info[100],params[100],runtime[100],summary[100];
+	time_t t[5];
 
 	if(read_param(argc, argv, &ARG)==1){
 		fprintf (stderr, "Usage: ./allcoms graph.txt [-qfonc char*] [-tr bool] [-qual float] [-sim float] [-max int] [-min int] [-times int] [-rep int] [-ini int] [-rm bool] [-order bool] [-path char*] [-print bool]\n");
 		exit(1);
 	}
-	printf("qfonc=%s\n",ARG.qfonc);
+
 	quality = choosequal(ARG.qfonc);
 
 	strcpy(node_coms,ARG.path), strcat(node_coms,"/node_coms");
 	strcpy(com_nodes,ARG.path), strcat(com_nodes,"/com_nodes");
 	strcpy(info,ARG.path), strcat(info,"/info");
 	strcpy(params,ARG.path), strcat(params,"/params");
+	strcpy(runtime,ARG.path), strcat(runtime,"/runtime");
+	strcpy(summary,ARG.path), strcat(summary,"/summary");
+
 
 	srand(time(NULL));
 
 	if (ARG.print)
 		printf("Reading edgelist from file %s\n",ARG.graph);
+
+	t[0]=time(NULL);
 	g=readedgelist(ARG.graph);
+	t[1]=time(NULL);
+
 	if (ARG.print)
 		printf("Relabeling nodes\n");
 	relabel(g);
@@ -50,6 +81,8 @@ int main(int argc,char** argv){
 
 	//allocating the cleaning data structure
 	clean=allocclean(g->n);
+
+	t[2]=time(NULL);
 
 	if (ARG.order==0){
 		for (i=0;i < g->n * ARG.rep;i++) {//TR
@@ -70,9 +103,13 @@ int main(int argc,char** argv){
 			mkcom(com);//form the community
 			com2coms(com,coms);
 		}
-		printf("Sorting the found communities\n");
+		if (ARG.print){
+			printf("Sorting the found communities\n");
+		}
 		sortcoms(coms);//sorting the communities in decreasing order of scores
-		printf("Cleaning the found communities\n");
+		if (ARG.print){
+			printf("Cleaning the found communities\n");
+		}
 		for (i=0;i < coms->n;i++) {//TR
 			coms2com(coms,i,com);
 			com2clean(com,clean);//add the community to the cleaning datastructure
@@ -80,10 +117,17 @@ int main(int argc,char** argv){
 				printprogress(clean);
 		}
 	}
+	t[3]=time(NULL);
 
 	printcoms(node_coms,com_nodes,info,clean,g);
+	freegraph(g);
+
+	printsummary(summary,clean);
 	printparams(params);
 
-	freegraph(g);
+	t[4]=time(NULL);
+
+	printtime(runtime,t);
+
 	return 0;
 }
