@@ -11,15 +11,15 @@
 #define EPS 1e-10 //minimal increase of quality for the stop criterion
 
 //default parameters, can be changed with options:
-#define QFONC "rdt" //quality function choice: 1=rd, 2=phi, 3=ad, 4=ed, 5=rdtr, 6=atrd, 7=cohesion...
-#define TR 1//Keep track of triangles?: 0=No,1=Yes,2=Yes and remove all nodes belonging to 0 triangles.
+#define QFONC "f2" //quality function choice: 1=rd, 2=phi, 3=ad, 4=ed, 5=rdtr, 6=atrd, 7=cohesion...
+#define TR 0//Keep track of triangles?: 0=No,1=Yes,2=Yes and remove all nodes belonging to 0 triangles.
 #define QUAL -1e10 //minimal quality to consider a community
-#define SIM 0.7 //similarity threshold between two communities
+#define SIM 0.999 //similarity threshold between two communities
 #define MAX 10000 //maximum size of a found communities
 #define MIN 3 //minimum size of a found communities
 #define TIMES 3 //minimal number of times a set of nodes has to be found to be considered as a community
 #define REP 2 //number of iterations = number of nodes times REP
-#define INI 3 //initialisation of a community //1:a random node, 2:two neighbors, 3:neighborhood
+#define INI 2 //initialisation of a community //1:a random node, 2:two neighbors, 3:neighborhood
 #define RM 1 //authorize removal of nodes from the community
 #define GREEDY 0 //0: stochastic heuristic, 1: greedy heuristic
 #define ORDER 0 //order for the cleaning
