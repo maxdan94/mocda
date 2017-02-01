@@ -42,7 +42,7 @@ int main(int argc,char** argv){
 	time_t t[5];
 
 	if(read_param(argc, argv, &ARG)==1){
-		fprintf (stderr, "Usage: ./allcoms graph.txt [-qfonc char*] [-tr bool] [-qual float] [-sim float] [-max int] [-min int] [-times int] [-rep int] [-ini int] [-rm bool] [-order bool] [-path char*] [-print bool]\n");
+		fprintf (stderr, "Usage: ./mocda graph.txt [-qfonc char*] [-tr bool] [-qual float] [-sim float] [-max int] [-min int] [-times int] [-rep int] [-ini int] [-rm bool] [-order bool] [-path char*] [-print bool]\n");
 		exit(1);
 	}
 
