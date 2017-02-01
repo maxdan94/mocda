@@ -6,7 +6,7 @@ EXEC=main
 all: $(EXEC)
 
 main: graph.o funcqual.o triangle.o optim.o clean.o param.o main.o
-	$(CC) -o allcoms graph.o funcqual.o triangle.o optim.o clean.o param.o main.o $(CFLAGS)
+	$(CC) -o mocda graph.o funcqual.o triangle.o optim.o clean.o param.o main.o $(CFLAGS)
 
 graph.o: graph.c
 	$(CC) -o graph.o -c graph.c $(CFLAGS)
@@ -30,7 +30,7 @@ main.o: main.c
 	$(CC) -o main.o -c main.c $(CFLAGS)
 
 clean:
-	rm *.o allcoms
+	rm *.o mocda
 
 cleanall:
-	rm *.o allcoms info params node_coms com_nodes
+	rm *.o mocda info params node_coms com_nodes
